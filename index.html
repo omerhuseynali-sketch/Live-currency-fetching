@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content ="width=device-width,initial-scale =1">
+        <title>Currency,Wealth calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <main class="card">
+            <h1>Wealth Dashboard</h1>
+            <p class="sub">Convert currencies, or calculate your compound growth</p>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-target="converterTab">Converter</button>
+                <button class="tab-btn" data-target="interestTab">Compound Interest</button>   
+            </div>
+
+            <div id="converterTab" class="tab-content active">
+                <div class="row">
+                    <div class="field">
+                        <label for="amount">Amount</label>
+                        <input id="amount" type="text" inputmode="decimal" value="1" autocomplete="off">
+                    </div>
+                    <div class="field">
+                        <label for="from">Base Unit</label>
+                        <select id="from">
+                            <option value="USD">US Dollar(USD)</option>
+                            <option value="EUR">EURO (EUR)</option>
+                            <option value="XAU">GOLD (gram)</option>
+                            <option value="XAG">SILVER (gram)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="fetchBtn" class="action-btn" type="button">Fetch Live prices</button>
+                <p id="status" role="status" aria-live="polite"></p>
+                <ul class="results" id="results"></ul>
+            </div>
+
+            <div id="interestTab" class="tab-content">
+                <div class="row">
+                    <div class="field">
+                        <label for="initialDeposit">Initial Deposit($)</label>
+                        <input id="initialDeposit" type="text" inputmode="decimal" value="1000" autocomplete="off">
+                    </div>
+                    <div class="field">
+                        <label for="monthlyContribution">Monthly Add ($)</label>
+                        <input id="monthlyContribution" type="text" inputmode="decimal" value="100" autocomplete="off">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <label for="interestRate">Annual Rate(%)</label>
+                        <input id="interestRate" type="text" inputmode="decimal" value="7" autocomplete="off">
+                    </div>
+                    <div class="field">
+                        <label for="years">Years</label>
+                        <input id="years" type="text" inputmode="numeric" value="10" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="interest-summary">
+                    <h3>Growth Breakdown</h3>
+                    <div class="summary-row">
+                        <span>Total Contributions:</span>
+                        <span id="totalContributions">13,000.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Interest Earned:</span>
+                        <span id="totalInterest">7,288.45</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Future Value:</span>
+                        <span id="futureValue">20,288.45</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <script src="app.js"></script>
+    </body>
+</html>
